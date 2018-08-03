@@ -8,11 +8,57 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20.0),
-      child: Text('Login Screen'),
+        margin: EdgeInsets.all(20.0),
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: <Widget>[
+              emailField(),
+              passwordField(),
+              // For adding margins
+              Container(margin: EdgeInsets.only(top: 25.0)),
+              submitButton(),
+            ],
+          ),
+        )
     );
   }
+
+
+}
+
+
+Widget emailField() {
+  return TextFormField(
+    decoration: InputDecoration(
+      labelText: 'Email Address',
+      hintText: 'name@example.com',
+    ),
+    keyboardType: TextInputType.emailAddress,
+  );
+}
+
+Widget passwordField() {
+  return TextFormField(
+    decoration: InputDecoration(
+      labelText: 'Password',
+      hintText: 'Password',
+    ),
+    obscureText: true,
+  );
+}
+
+Widget submitButton() {
+  return RaisedButton(
+      child: Text('Submit'),
+      color: Colors.red,
+      onPressed: () {
+
+      });
 }
