@@ -41,6 +41,11 @@ Widget emailField() {
       hintText: 'name@example.com',
     ),
     keyboardType: TextInputType.emailAddress,
+    validator: (String value) {
+      if (!value.contains('@')) {
+        return 'Please enter valid email';
+      }
+    },
   );
 }
 
@@ -51,12 +56,23 @@ Widget passwordField() {
       hintText: 'Password',
     ),
     obscureText: true,
+    validator: (String value) {
+      if (value.length > 4 && value.length < 20) {
+        return 'Password should be between 4 and 20 characters';
+      }
+    },
   );
 }
 
 Widget submitButton() {
   return RaisedButton(
-      child: Text('Submit'),
+      child: Text(
+          'Submit',
+          style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold
+          )
+      ),
       color: Colors.red,
       onPressed: () {
 
