@@ -1,6 +1,6 @@
 # flutter_login_stateful
 
-A new Flutter application.
+Flutter Practice for Login Form using Stateless and Statefull widgets.
 
 ## Getting Started
 
